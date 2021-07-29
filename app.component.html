@@ -1,0 +1,43 @@
+<div class="col-lg-9 control-section">
+    <ejs-treegrid #treegrid [dataSource]='data' height='350' childMapping='subtasks' [treeColumnIndex]='1'
+        allowPaging='true' [pageSettings]='pageSettings' allowReordering='true'
+        (actionComplete)="actionComplete($event)">
+        <e-columns>
+            <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right' allowReordering='false'>
+            </e-column>
+            <e-column field='taskName' headerText='Task Name' width='200'></e-column>
+            <e-column field='startDate' headerText='Start Date' width='105' format="yMd" textAlign='Right'></e-column>
+            <e-column field='duration' headerText='Duration' width='80' textAlign='Right'></e-column>
+            <e-column field='progress' headerText='Progress' width='80' textAlign='Right'></e-column>
+        </e-columns>
+    </ejs-treegrid>
+</div>
+<div class="col-lg-3 property-section">
+    <div class="property-panel-section">
+        <div class="property-panel-header">Properties </div>
+        <table id="property" class="property-panel-table" title="Properties" style="width: 100%">
+            <tr style="height: 50px">
+                <td style="width: 30%">
+                    <div style="padding-top: 10px">Column</div>
+                </td>
+                <td style="width: 30%;padding-right: 10px">
+                    <div>
+                        <ejs-dropdownlist #dropdown1 id='ddlelement' width='110px' [dataSource]='d1data'
+                            [fields]='ddlfields' value='taskID' (change)="onChange($event)"></ejs-dropdownlist>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 50px">
+                <td style="width: 30%">
+                    <div>Column Index</div>
+                </td>
+                <td style="width: 30%;padding: 10px 10px 10px 0px">
+                    <div>
+                        <ejs-dropdownlist #dropdown2 id='element' width='110px' [dataSource]='d2data' [fields]='fields'
+                            value='0' (change)="change($event)"></ejs-dropdownlist>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
